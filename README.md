@@ -1,0 +1,1 @@
+﻿# WeChooz Aspire Integration MailKit
