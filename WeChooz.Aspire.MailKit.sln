@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{C83FFCE3-3855-4FC1-B139-B03F3A57047B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeChooz.Aspire.MailKit", "src\WeChooz.Aspire.MailKit\WeChooz.Aspire.MailKit.csproj", "{7C552D79-029E-4D86-9E53-2E1685C91C0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHost", "samples\AppHost\AppHost.csproj", "{1A1D1B69-2834-4EA4-B14E-1974AB6DFE71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "samples\WebApplication\WebApplication.csproj", "{5359BDD5-AF8C-58B7-7CCA-7C8324342D53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5CCB3436-1AB3-459E-A4E6-E22A6A9B401C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docs", "docs\docs.csproj", "{718966AB-D840-C99F-BC8C-757012BE68AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{B3F997C0-4251-47FD-A394-2E0CD97E15D2}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4D1E1DAE-2683-4855-8B29-EAFDD5435303}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
+		.github\workflows\generateDocs.yml = .github\workflows\generateDocs.yml
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C552D79-029E-4D86-9E53-2E1685C91C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C552D79-029E-4D86-9E53-2E1685C91C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C552D79-029E-4D86-9E53-2E1685C91C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C552D79-029E-4D86-9E53-2E1685C91C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1D1B69-2834-4EA4-B14E-1974AB6DFE71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1D1B69-2834-4EA4-B14E-1974AB6DFE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1D1B69-2834-4EA4-B14E-1974AB6DFE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1D1B69-2834-4EA4-B14E-1974AB6DFE71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5359BDD5-AF8C-58B7-7CCA-7C8324342D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5359BDD5-AF8C-58B7-7CCA-7C8324342D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5359BDD5-AF8C-58B7-7CCA-7C8324342D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5359BDD5-AF8C-58B7-7CCA-7C8324342D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{718966AB-D840-C99F-BC8C-757012BE68AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{718966AB-D840-C99F-BC8C-757012BE68AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{718966AB-D840-C99F-BC8C-757012BE68AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{718966AB-D840-C99F-BC8C-757012BE68AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7C552D79-029E-4D86-9E53-2E1685C91C0D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1A1D1B69-2834-4EA4-B14E-1974AB6DFE71} = {C83FFCE3-3855-4FC1-B139-B03F3A57047B}
+		{5359BDD5-AF8C-58B7-7CCA-7C8324342D53} = {C83FFCE3-3855-4FC1-B139-B03F3A57047B}
+		{718966AB-D840-C99F-BC8C-757012BE68AA} = {5CCB3436-1AB3-459E-A4E6-E22A6A9B401C}
+		{B3F997C0-4251-47FD-A394-2E0CD97E15D2} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+		{4D1E1DAE-2683-4855-8B29-EAFDD5435303} = {B3F997C0-4251-47FD-A394-2E0CD97E15D2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46C55D24-6324-4C38-A0A3-9177E8B8E6B8}
+	EndGlobalSection
+EndGlobal

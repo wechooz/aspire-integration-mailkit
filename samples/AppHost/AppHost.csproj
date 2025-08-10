@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.4.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <UserSecretsId>cbd6dc7c-5ec4-43b5-80c2-2a85443ffef3</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="WeChooz.Aspire.Hosting.MailDev" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication\WebApplication.csproj" />
+  </ItemGroup>
+
+</Project>

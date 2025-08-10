@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors> 
+    <WarningLevel>9999</WarningLevel> 
+    <NoWarn>NU1103,NU1602,NU1604,NU1701</NoWarn>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+</Project>

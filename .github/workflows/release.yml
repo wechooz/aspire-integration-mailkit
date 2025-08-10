@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_VERSION: "9.0.x"
+
+permissions:
+  checks: write
+  contents: read
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      forRelease: true
+
+  generate_docs:
+    uses: ./.github/workflows/generateDocs.yml
+
+  publish_package:
+    needs: [build, generate_docs]
+    uses: ./.github/workflows/publish.yml
+    with:
+      feedUrl: https://api.nuget.org/v3/index.json
+      environmentName: nuget
+    secrets:
+      feedAPIKey: ${{ secrets.NUGET_API_KEY }}
+    if: github.event_name == 'push'
+    
+  publish_docs:
+    needs: [publish_package, generate_docs]
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish documentation
+        uses: actions/deploy-pages@v4
+        id: deployment

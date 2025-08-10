@@ -1,0 +1,40 @@
+on:
+    workflow_call:
+      inputs:
+        forRelease:
+          description: "Run for release?"
+          required: true
+          type: boolean
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Git Semantic Version
+        id: version
+        uses: PaulHatch/semantic-version@v5.4.0
+        with:
+          tag_prefix: ""
+          version_format: "${major}.${minor}.${patch}${{ !inputs.forRelease && '-preview${increment}' || '' }}"
+          search_commit_body: true
+
+      - name: Setup dotnet ${{ env.DOTNET_VERSION }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Build and Pack
+        run: dotnet build -c Release -p:Version=${{ steps.version.outputs.version}}
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: "**/*.nupkg"

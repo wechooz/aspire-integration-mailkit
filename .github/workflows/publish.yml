@@ -1,0 +1,35 @@
+on:
+    workflow_call:
+      inputs:
+        feedUrl:
+          description: "NuGet feed URL"
+          required: true
+          type: string
+        environmentName:
+          description: "Name of the environment"
+          required: true
+          type: string
+      secrets:
+        feedAPIKey:
+          description: "NuGet feed API key"
+          required: true
+
+jobs:
+  publish:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environmentName }}
+    steps:
+      - name: Download package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: packages
+    
+      - name: Push to NuGet package feed
+        env:
+          NUGET_URL: ${{ inputs.feedUrl }}
+          NUGET_API_KEY: ${{ secrets.feedAPIKey }}
+        run: dotnet nuget push '**/*.nupkg' --source "$NUGET_URL" --api-key "$NUGET_API_KEY"
+        if: github.event_name == 'push'
