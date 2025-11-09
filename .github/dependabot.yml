@@ -27,8 +27,8 @@ updates:
       dotnet:
         patterns:
         - "*"
-        exclude-patterns:
-        - "MailKit"
+    ignore:
+    - dependency-name: "MailKit"
   
   - package-ecosystem: "dotnet-sdk" # See documentation for possible values
     directory: "/" # Location of package manifests
