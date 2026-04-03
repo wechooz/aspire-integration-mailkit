@@ -3,15 +3,13 @@ on:
       inputs: {}
 jobs:
   build:
-    strategy:
-      fail-fast: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: Build documenation site
-        uses: nunit/docfx-action@v4.1.0
+        uses: wechooz/docfx-action@v10.0.0
         with:
           args: docs/docfx.json
 

@@ -16,14 +16,12 @@ on:
 
 jobs:
   publish:
-    strategy:
-      fail-fast: false
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environmentName }}
     steps:
       - name: Download package artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: packages
     

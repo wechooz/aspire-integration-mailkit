@@ -8,8 +8,6 @@ on:
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,7 +17,7 @@ jobs:
 
       - name: Git Semantic Version
         id: version
-        uses: PaulHatch/semantic-version@v6.0.1
+        uses: PaulHatch/semantic-version@v6.0.2
         with:
           tag_prefix: ""
           version_format: "${major}.${minor}.${patch}${{ !inputs.forRelease && '-preview${increment}' || '' }}"
@@ -34,7 +32,7 @@ jobs:
         run: dotnet build -c Release -p:Version=${{ steps.version.outputs.version}}
 
       - name: Upload package artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: packages
           path: "**/*.nupkg"
