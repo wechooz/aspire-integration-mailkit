@@ -1,0 +1,33 @@
+<Solution>
+  <Folder Name="/docs/">
+    <Project Path="docs/docs.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/AppHost/AppHost.csproj" />
+    <Project Path="samples/WebApplication/WebApplication.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/">
+    <File Path=".github/dependabot.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/workflows/">
+    <File Path=".github/workflows/build.yml" />
+    <File Path=".github/workflows/ci.yml" />
+    <File Path=".github/workflows/codeql-analysis.yml" />
+    <File Path=".github/workflows/generateDocs.yml" />
+    <File Path=".github/workflows/publish.yml" />
+    <File Path=".github/workflows/release.yml" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/WeChooz.Aspire.MailKit/WeChooz.Aspire.MailKit.csproj" />
+  </Folder>
+</Solution>
