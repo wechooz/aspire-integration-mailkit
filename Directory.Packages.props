@@ -4,9 +4,9 @@
     <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Aspire.Hosting.AppHost" Version="13.3.0" />
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="13.3.5" />
     <PackageVersion Include="MailKit" Version="4.16.0" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="10.0.7" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="10.0.8" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.15.3" />
     <PackageVersion Include="WeChooz.Aspire.Hosting.MailDev" Version="2.0.0" />
   </ItemGroup>
