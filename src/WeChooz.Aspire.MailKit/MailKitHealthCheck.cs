@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace WeChooz.Aspire.MailKit;
+
 internal sealed class MailKitHealthCheck(IServiceProvider serviceProvider) : IHealthCheck
 {
     internal const string HealthCheckNamePrefix = "MailKit_";
@@ -16,7 +17,7 @@ internal sealed class MailKitHealthCheck(IServiceProvider serviceProvider) : IHe
             var factory = hasServiceKey ? serviceProvider.GetRequiredKeyedService<ISmtpClientFactory>(serviceKey) : serviceProvider.GetRequiredService<ISmtpClientFactory>();
             var client = await factory.GetSmtpClientAsync(cancellationToken);
 
-            return HealthCheckResult.Healthy();
+            return client != null ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy(description: "Failed to get a connected SMTP client.");
         }
         catch (Exception ex)
         {
