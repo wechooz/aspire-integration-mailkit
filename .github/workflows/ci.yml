@@ -12,13 +12,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-env:
-    DOTNET_VERSION: '10.0.x'
-
-permissions:
-  checks: write
-  contents: read
-
 jobs:
   build:
     uses: ./.github/workflows/build.yml
@@ -26,11 +19,11 @@ jobs:
       forRelease: false
 
   generate_docs:
-    uses: ./.github/workflows/generateDocs.yml
+    uses: ./.github/workflows/generate-docs.yml
 
   publish_package:
     needs: build
-    uses: ./.github/workflows/publish.yml
+    uses: ./.github/workflows/publish-packages-myget.yml
     with:
       feedUrl: https://www.myget.org/F/wechooz/api/v3/index.json
       environmentName: myget

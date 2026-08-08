@@ -23,8 +23,9 @@
     <File Path=".github/workflows/build.yml" />
     <File Path=".github/workflows/ci.yml" />
     <File Path=".github/workflows/codeql-analysis.yml" />
-    <File Path=".github/workflows/generateDocs.yml" />
-    <File Path=".github/workflows/publish.yml" />
+    <File Path=".github/workflows/generate-docs.yml" />
+    <File Path=".github/workflows/publish-packages-myget.yml" />
+    <File Path=".github/workflows/publish-packages-nuget.yml" />
     <File Path=".github/workflows/release.yml" />
   </Folder>
   <Folder Name="/src/">

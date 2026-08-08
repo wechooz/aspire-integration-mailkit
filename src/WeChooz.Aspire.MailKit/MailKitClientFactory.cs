@@ -9,7 +9,7 @@ internal sealed class MailKitClientFactory(MailKitClientSettings settings) : ISm
     private SmtpClient? _client;
     public async Task<ISmtpClient> GetSmtpClientAsync(CancellationToken cancellationToken = default)
     {
-        if(settings.Endpoint is null)
+        if (settings.Endpoint is null)
         {
             throw new InvalidOperationException("Endpoint is not configured for MailKitClientFactory.");
         }

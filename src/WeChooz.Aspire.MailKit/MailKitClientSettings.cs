@@ -72,14 +72,14 @@ public sealed class MailKitClientSettings
                 ConnectionString = connectionString
             };
 
-            if (builder.TryGetValue("Endpoint", out var endpoint) is false)
+            if (!builder.TryGetValue("Endpoint", out var endpoint))
             {
                 throw new InvalidOperationException($"""
                         The 'Endpoint' key in 'ConnectionStrings:<connectionName>' is missing.
                         """);
             }
 
-            if (Uri.TryCreate(endpoint.ToString(), UriKind.Absolute, out uri) is false)
+            if (!Uri.TryCreate(endpoint.ToString(), UriKind.Absolute, out uri))
             {
                 throw new InvalidOperationException($"""
                         The 'Endpoint' key in 'ConnectionStrings:<connectionName>' isn't a valid URI.

@@ -8,9 +8,6 @@ on:
   schedule:
     - cron: '38 16 * * 5'
 
-env:
-  DOTNET_VERSION: '10.0.x'
-
 jobs:
   analyze:
     name: Analyze
@@ -29,23 +26,23 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v4
+      uses: github/codeql-action/init@f205ea1c3313d32999d8d6a48b4f6530d4437b38 # v4.37.4
       with:
         languages: ${{ matrix.language }}
 
-    - name: Setup dotnet ${{ env.DOTNET_VERSION }}
-      uses: actions/setup-dotnet@v6
+    - name: Setup dotnet from global.json
+      uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
       with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
+        global-json-file: global.json
   
     - name: Build projects
       run: dotnet build -c Release
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v4
+      uses: github/codeql-action/analyze@f205ea1c3313d32999d8d6a48b4f6530d4437b38 # v4.37.4
       with:
         category: "/language:${{matrix.language}}"

@@ -70,7 +70,7 @@ public static class MailKitExtensions
             return new MailKitClientFactory(settings);
         }
 
-        if (settings.DisableHealthChecks is false)
+        if (!settings.DisableHealthChecks)
         {
             builder.Services.AddHealthChecks()
                 .AddCheck<MailKitHealthCheck>(
@@ -79,13 +79,13 @@ public static class MailKitExtensions
                     tags: []);
         }
 
-        if (settings.DisableTracing is false)
+        if (!settings.DisableTracing)
         {
             builder.Services.AddOpenTelemetry()
                 .WithTracing(traceBuilder => traceBuilder.AddSource(Telemetry.SmtpClient.ActivitySourceName));
         }
 
-        if (settings.DisableMetrics is false)
+        if (!settings.DisableMetrics)
         {
             // Required by MailKit to enable metrics
             Telemetry.SmtpClient.Configure();
