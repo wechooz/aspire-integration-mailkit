@@ -19,14 +19,14 @@ jobs:
 
       - name: Git Semantic Version
         id: version
-        uses: PaulHatch/semantic-version@502226b17e3e242e4befd0a45690fcbb27dd1373 # v6.0.3
+        uses: PaulHatch/semantic-version@5ae1354e589c5a67345fb2c6e65b025ff676d7c7 # v6.0.7
         with:
           tag_prefix: ""
           version_format: "${major}.${minor}.${patch}${{ !inputs.forRelease && '-preview${increment}' || '' }}"
           search_commit_body: true
 
       - name: Setup dotnet from global.json
-        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6
         with:
           global-json-file: global.json
 
@@ -37,7 +37,7 @@ jobs:
         run: dotnet build -c Release -p:Version=${{ steps.version.outputs.version}}
 
       - name: Upload package artifact
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: packages
           path: "**/*.nupkg"
